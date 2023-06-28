@@ -54,6 +54,7 @@ void showCards(Card* cards, int cardsCount) {
 		showCard(cards[i]);
 	}
 }
+
 void dealCardAndTotal(
 	int& aceCount, 
 	int& total, 
@@ -71,7 +72,6 @@ void dealCardAndTotal(
 	else {
 		total += card.value;
 	}
-
 	while (aceCount > 0 && total > 21) {
 		aceCount--;
 		total -= 10;
@@ -109,7 +109,7 @@ int main()
 		hitOrStand = tolower(hitOrStand);
 		if (hitOrStand == 'h') {
 			dealCardAndTotal(playerAceCount, playerTotal, playerHand, playerCardsCount);
-			showCard(playerHand[playerCardsCount]);
+			showCard(playerHand[playerCardsCount-1]);
 			cout << "\nPlayer Total: " << playerTotal;
 			if (playerTotal > 21) {
 				cout << "\nPlayer BUSTS!";
